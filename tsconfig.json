@@ -19,7 +19,7 @@
       "*": ["./src/*"]
     }
   },
-  "types": ["react", "react-dom", "@types/react", "@types/react-dom"],      
+  "types": ["react", "react-dom", "@types/react", "@types/react-dom"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

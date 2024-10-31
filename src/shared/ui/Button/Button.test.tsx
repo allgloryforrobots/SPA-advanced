@@ -4,6 +4,6 @@ import { Button } from 'shared/ui/Button/Button'
 describe('classNames', () => {
     test('with only first param', () => {
         render(<Button>TEST</Button>)
-        // expect(screen.getByText('TEST')).toBeInTheDocument()
+        expect(screen.getByText('TEST')).toBeInTheDocument()
     })
 })
