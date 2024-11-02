@@ -73,6 +73,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                 loader: 'css-loader',
                 options: {
                     modules: {
+                        auto: /\.module\.\w+$/,
                         namedExport: false,
                         exportLocalsConvention: 'as-is',
                         localIdentName: isDev
