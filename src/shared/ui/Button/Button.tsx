@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import * as cls from './Button.module.scss'
+import cls from './Button.module.scss'
 import { ButtonHTMLAttributes, FC } from 'React'
 import { ReactNode } from 'react'
 
@@ -9,7 +9,7 @@ export enum ThemeButton {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
-    children: ReactNode
+    children?: ReactNode
     theme?: ThemeButton
 }
 

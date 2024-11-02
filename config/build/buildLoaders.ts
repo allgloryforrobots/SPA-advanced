@@ -48,23 +48,39 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
     const sassLoader = {
         test: /\.s[ac]ss$/i,
+        // use: [
+        //     // MiniCssExtractPlugin - загрузка css отдельным файлом
+        //     isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+        //     // Translates CSS into CommonJS
+        //     {
+        //         loader: 'css-loader',
+        //         options: {
+        //             // localIdentName: options.isDev ? '[path][name]__[local]' : '[hash:base64]',
+        //             modules: {
+        //                 localIdentName: isDev
+        //                     ? '[path][name]__[local]--[hash:base64:5]'
+        //                     : '[hash:base64:8]',
+        //                 auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+        //             },
+        //         },
+        //     },
+        //     // Compiles Sass to CSS
+        //     'sass-loader',
+        // ],
         use: [
-            // MiniCssExtractPlugin - загрузка css отдельным файлом
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            // Translates CSS into CommonJS
             {
                 loader: 'css-loader',
                 options: {
-                    // localIdentName: options.isDev ? '[path][name]__[local]' : '[hash:base64]',
                     modules: {
+                        namedExport: false,
+                        exportLocalsConvention: 'as-is',
                         localIdentName: isDev
                             ? '[path][name]__[local]--[hash:base64:5]'
                             : '[hash:base64:8]',
-                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
                     },
                 },
             },
-            // Compiles Sass to CSS
             'sass-loader',
         ],
     }
