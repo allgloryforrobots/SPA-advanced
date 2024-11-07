@@ -10,7 +10,7 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = () => {
-    const [collapsed, setCollapsed] = useState<boolean>(true)
+    const [collapsed, setCollapsed] = useState<boolean>(false)
 
     const onToggle = () => {
         setCollapsed((prev) => !prev)
@@ -21,7 +21,9 @@ export const Sidebar: FC<SidebarProps> = () => {
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [])}
         >
-            <Button onClick={onToggle}>Toggle</Button>
+            <Button data-testid="sidebar-toggle" onClick={onToggle}>
+                Toggle
+            </Button>
 
             <div className={cls.switchers}>
                 <ThemeSwitcher />
