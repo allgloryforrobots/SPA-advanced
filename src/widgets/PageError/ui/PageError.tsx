@@ -8,7 +8,7 @@ interface PageErrorProps {
     className?: string
 }
 
-export const PageError: FC<PageErrorProps> = (props) => {
+export const PageError: FC<PageErrorProps> = (props: PageErrorProps) => {
     const { className } = props
     const { t } = useTranslation()
     const reloadPage = () => {
