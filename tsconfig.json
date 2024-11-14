@@ -19,7 +19,8 @@
     "paths": {
       "*": ["./src/*"]
     },
-    "types": ["react", "react-dom"]
+    "types": ["react", "react-dom", "node"],
+    "typeRoots": ["./node_modules/@types"]
   },
   "ts-node": {
     "compilerOptions": {
