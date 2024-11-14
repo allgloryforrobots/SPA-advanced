@@ -23,7 +23,7 @@ jobs:
           rm -rf node_modules
           npm install
       - name: build production project
-        run: npm run build:prod
+        run: npm run build:prod -- --stats-error-details
       - name: linting typescript
         run: npm run lint:ts
       - name: linting scss
