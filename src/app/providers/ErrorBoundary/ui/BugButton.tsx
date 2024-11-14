@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react'
+import { t } from 'i18next'
 
 // компонент для тестирования
 export const BugButton: FC = () => {
@@ -12,5 +13,5 @@ export const BugButton: FC = () => {
         }
     }, [error])
 
-    return <button onClick={throwError}>Throw Error</button>
+    return <button onClick={throwError}>{t('Выбросить ошибку')}</button>
 }

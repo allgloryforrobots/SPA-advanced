@@ -4,6 +4,7 @@ import { useState, FC } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 import { Button } from 'shared/ui/Button/Button'
+import { t } from 'i18next'
 
 interface SidebarProps {
     className?: string
@@ -22,7 +23,7 @@ export const Sidebar: FC<SidebarProps> = () => {
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [])}
         >
             <Button data-testid="sidebar-toggle" onClick={onToggle}>
-                Toggle
+                {t('Переключить')}
             </Button>
 
             <div className={cls.switchers}>
