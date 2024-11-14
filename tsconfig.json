@@ -20,7 +20,8 @@
       "*": ["./src/*"]
     },
     "types": ["react", "react-dom", "node", "@types/react"],
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types"],
+    "skipLibCheck": true
   },
   "ts-node": {
     "compilerOptions": {
