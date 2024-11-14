@@ -6,7 +6,7 @@ interface LoaderProps {
     className?: string
 }
 
-export const Loader: FC<LoaderProps> = (props) => {
+export const Loader: FC<LoaderProps> = (props: LoaderProps) => {
     const { className } = props
     return (
         <div className={classNames('lds-ellipsis', {}, [className])}>
