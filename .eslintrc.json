@@ -9,8 +9,9 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:i18next/recommended",
-    "prettier"
+    "plugin:i18next/recommended"
+// printWidth в prettier нельзя отключить для деструктуризации объектов, а нужно, чтобы каждая переменная была на новой строке
+//    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -22,8 +23,8 @@
   },
   "plugins": [
     "react",
-    "@typescript-eslint",
-    "prettier"
+    "@typescript-eslint"
+//    "prettier"
   ],
   "rules": {
     "max-len": ["error", { "code": 100,"ignoreComments": true }],
@@ -34,17 +35,22 @@
     // const a = 1
     // ;[1, 2, 3].forEach(console.log)
     "semi": ["error", "never"],
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto",
-        "semi": false,
-        "trailingComma": "es5",
-        "singleQuote": true,
-        "printWidth": 100,
-        "tabWidth": 4
-      }
-    ],
+    // деструктуризация и объекты - каждое поле на новой строке / не отработало
+    "object-curly-newline": "off",
+//    "prettier/prettier": [
+//      "error",
+//      {
+//        "endOfLine": "auto",
+//        "semi": false,
+//        "trailingComma": "es5",
+//        "singleQuote": true,
+//        "printWidth": 100,
+//        "tabWidth": 4,
+//        // jsx - каждый атрибут на новую строку
+//        "bracketSameLine": false,
+//        "object-curly-newline": "off"
+//      }
+//    ],
     "i18next/no-literal-string": [
       "error",
       {
@@ -65,6 +71,12 @@
       "files": ["**/src/**/*.test.{ts, tsx}"],
       "rules": {
         "i18next/no-literal-string": "off"
+      }
+    },
+    {
+      "files": ["*.stories.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off"
       }
     }
   ]
