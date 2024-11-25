@@ -8,11 +8,21 @@
   padding: 6px 15px;
 }
 
-.clear {
+@mixin clear() {
   padding: 0;
   border: none;
   background: none;
   outline: none;
+}
+
+.clear {
+  @include clear;
+}
+
+.clearInverted {
+  @include clear;
+
+  color: var(--inverted-primary-color)
 }
 
 .outline {
@@ -29,7 +39,7 @@
 
 .backgroundInverted {
   background: var(--inverted-bg-color);
-  color: var(--inverted-secondary-color);
+  color: var(--inverted-primary-color);
   border: none;
 }
 

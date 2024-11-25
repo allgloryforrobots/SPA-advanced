@@ -23,8 +23,11 @@
   },
   "plugins": [
     "react",
-    "@typescript-eslint"
-//    "prettier"
+    "@typescript-eslint",
+    "i18next",
+    "react-hooks"
+    // отключаем из-за настройки на длину строки, которая не дает сделать красивое форматирование jsx (сейчас ее нельзя кастомизировать как правила eslint)
+    // "prettier"
   ],
   "rules": {
     "max-len": ["error", { "code": 100,"ignoreComments": true }],
@@ -37,20 +40,23 @@
     "semi": ["error", "never"],
     // деструктуризация и объекты - каждое поле на новой строке / не отработало
     "object-curly-newline": "off",
-//    "prettier/prettier": [
-//      "error",
-//      {
-//        "endOfLine": "auto",
-//        "semi": false,
-//        "trailingComma": "es5",
-//        "singleQuote": true,
-//        "printWidth": 100,
-//        "tabWidth": 4,
-//        // jsx - каждый атрибут на новую строку
-//        "bracketSameLine": false,
-//        "object-curly-newline": "off"
-//      }
-//    ],
+    // главным образом для useEffect useCallback зависимостей
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+    //    "prettier/prettier": [
+    //      "error",
+    //      {
+    //        "endOfLine": "auto",
+    //        "semi": false,
+    //        "trailingComma": "es5",
+    //        "singleQuote": true,
+    //        "printWidth": 100,
+    //        "tabWidth": 4,
+    //        // jsx - каждый атрибут на новую строку
+    //        "bracketSameLine": false,
+    //        "object-curly-newline": "off"
+    //      }
+    //    ],
     "i18next/no-literal-string": [
       "error",
       {
@@ -68,7 +74,7 @@
   },
   "overrides": [
     {
-      "files": ["**/src/**/*.test.{ts, tsx}"],
+      "files": ["**/src/**/*.{test,stories}.{ts, tsx}"],
       "rules": {
         "i18next/no-literal-string": "off"
       }
@@ -76,7 +82,8 @@
     {
       "files": ["*.stories.tsx"],
       "rules": {
-        "@typescript-eslint/no-unused-vars": "off"
+        "@typescript-eslint/no-unused-vars": "off",
+        "max-len": "off"
       }
     }
   ]
