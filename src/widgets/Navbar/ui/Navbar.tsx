@@ -26,8 +26,8 @@ export const Navbar: FC<NavbarProps> = ({ className }: NavbarProps) => {
                 {t('Войти')}
             </Button>
             <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-                {/* eslint-disable-next-line */}
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam commodi dolorum esse iusto magni minus nulla officia repellat? Architecto!
+                {/* eslint-disable-next-line max-len */}
+                {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam commodi dolorum esse iusto magni minus nulla officia repellat? Architecto!')}
             </Modal>
         </nav>
     )
