@@ -43,6 +43,8 @@
     // главным образом для useEffect useCallback зависимостей
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+    // правило было нужно для отключения ошибок на мутацию параметров в слайсах (immer позволяет это делать), сейчас возможно не актуально
+    "no-param-reassign": "off",
     //    "prettier/prettier": [
     //      "error",
     //      {
