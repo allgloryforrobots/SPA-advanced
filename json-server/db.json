@@ -1,0 +1,66 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "post 1",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "post 2",
+      "views": 200
+    },
+    {
+      "id": "3",
+      "title": "post 3",
+      "views": 300
+    },
+    {
+      "id": "4",
+      "title": "post 4",
+      "views": 400
+    },
+    {
+      "username": "admin",
+      "password": "123",
+      "id": "Qevy-G9"
+    },
+    {
+      "username": "admin",
+      "password": "123",
+      "id": "m7-itam"
+    },
+    {
+      "username": "admin",
+      "password": "123",
+      "id": "UIlm68g"
+    },
+    {
+      "username": "admin",
+      "password": "123",
+      "id": "LdrO9FS"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123"
+    }
+  ]
+}
