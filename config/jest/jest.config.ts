@@ -29,6 +29,8 @@ const config: Config = {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        // без алиасов не будут работать абсолютные пути в store.ts на тестах
+        '^entities/(.*)$': '<rootDir>/src/entities/$1'
     },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
