@@ -13,5 +13,8 @@
   "Увеличить": "Increment",
   "Уменьшить": "Decrement",
   "Введите username": "Enter username",
-  "Введите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Auth form",
+  "Неверный логин или пароль": "Incorrect login or password",
+  "Выйти": "Exit"
 }

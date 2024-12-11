@@ -1,28 +1,46 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { LoginForm } from './LoginForm'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 const meta = {
     title: 'features/LoginForm',
     component: LoginForm,
     tags: ['autodocs'],
     argTypes: {},
-    args: {
-
-    },
+    args: {},
 } satisfies Meta<typeof LoginForm>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-
 export const Primary: Story = {
     args: {},
+    decorators: [StoreDecorator({
+        loginForm: {
+            username: '123',
+            password: 'asd'
+        }
+    })],
 }
 
-export const Dark: Story = {
+export const withError: Story = {
     args: {},
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [StoreDecorator({
+        loginForm: {
+            username: '123',
+            password: 'asd',
+            error: 'Неверный логин или пароль'
+        }
+    })],
+}
+
+export const Loading: Story = {
+    args: {},
+    decorators: [StoreDecorator({
+        loginForm: {
+            isLoading: true
+        }
+    })],
 }
