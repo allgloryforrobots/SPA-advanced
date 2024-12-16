@@ -4,12 +4,17 @@ import { StateSchema } from './StateSchema'
 import { counterReducer } from '../../../../entities/Counter'
 import { userReducer } from '../../../../entities/User'
 import { createReducerManager } from './reducerManager'
+import { DeepPartial } from 'app/types/globalTypes'
 
 // для тестов нужно будет создавать store с аргументами
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(
+    initialState?: StateSchema,
+    asyncReducers?: ReducersMapObject<StateSchema>
+) {
     const rootReducers: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         user: userReducer,
-        counter: counterReducer,
+        counter: counterReducer
     }
 
     const reducerManager = createReducerManager(rootReducers)
