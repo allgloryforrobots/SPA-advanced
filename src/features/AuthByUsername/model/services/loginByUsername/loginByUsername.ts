@@ -8,9 +8,9 @@ interface LoginByUsernameProps {
     password: string
 }
 
-enum LoginErrors {
-    INCORRECT_DATA = ""
-}
+// enum LoginErrors {
+//     INCORRECT_DATA = ""
+// }
 
 export const loginByUsername =
     createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(

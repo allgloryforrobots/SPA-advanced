@@ -20,7 +20,7 @@ export function createReduxStore(initialState?: StateSchema) {
         preloadedState: initialState
     })
 
-    // @ts-ignore
+    // @ts-expect-error: TODO types
     store.reducerManager = reducerManager
 
     return store
