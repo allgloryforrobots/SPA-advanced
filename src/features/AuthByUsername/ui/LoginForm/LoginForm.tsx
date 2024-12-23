@@ -4,10 +4,9 @@ import { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { loginActions, loginReducer } from '../../model/slice/LoginSlice'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
-import { AppDispatch } from 'app/providers/StoreProvider/config/store'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import {
     getLoginUsername
@@ -23,9 +22,11 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 export interface LoginFormProps {
     className?: string
+    onSuccess?: () => void
 }
 
 const initialReducers: ReducersList = {
@@ -33,9 +34,13 @@ const initialReducers: ReducersList = {
 }
 
 const LoginForm: FC<LoginFormProps> = memo((props) => {
-    const { className } = props
+    const {
+        className,
+        onSuccess
+    } = props
+    
     const { t} = useTranslation()
-    const dispatch = useDispatch<AppDispatch>()
+    const dispatch = useAppDispatch()
     const username = useSelector(getLoginUsername)
     const password = useSelector(getLoginPassword)
     const error = useSelector(getLoginError)
@@ -49,9 +54,12 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
         dispatch(loginActions.setPassword(value))
     }, [dispatch])
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }))
-    }, [dispatch, password, username])
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }))
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess()
+        }
+    }, [dispatch, onSuccess, password, username])
 
     return (
         <DynamicModuleLoader
@@ -99,7 +107,5 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
         </DynamicModuleLoader>
     )
 })
-
-LoginForm.displayName = "LoginForm"
 
 export default LoginForm

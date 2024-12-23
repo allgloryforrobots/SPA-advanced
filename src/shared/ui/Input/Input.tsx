@@ -94,4 +94,3 @@ export const Input: FC<InputProps> = memo((props) => {
     )
 })
 
-Input.displayName = "Input"

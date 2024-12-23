@@ -4,7 +4,6 @@ import { StateSchema } from './StateSchema'
 import { counterReducer } from '../../../../entities/Counter'
 import { userReducer } from '../../../../entities/User'
 import { createReducerManager } from './reducerManager'
-import { DeepPartial } from 'app/types/globalTypes'
 
 // для тестов нужно будет создавать store с аргументами
 export function createReduxStore(
@@ -31,10 +30,12 @@ export function createReduxStore(
     return store
 }
 
-// store только для типизации
-export const  typesStore = createReduxStore()
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 
+// старое решение, workaround
+// store только для типизации
+// export const  typesStore = createReduxStore()
 // Типы RootState и AppDispatch
-export type RootState = ReturnType<typeof typesStore.getState>
-export type AppDispatch = typeof typesStore.dispatch
+// export type RootState = ReturnType<typeof typesStore.getState>
+// export type AppDispatch = typeof typesStore.dispatch
 

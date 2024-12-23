@@ -54,7 +54,14 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Кларк",
+    "lastname": "Кент",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://1avatara.ru/pic/game/game0004.jpg"
   },
   "users": [
     {
